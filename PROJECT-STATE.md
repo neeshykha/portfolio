@@ -27,11 +27,11 @@ Work-side: tool building, MCPs, web tools useful in IoT or similar environments 
 | # | Project | Status | Notes |
 |---|---------|--------|-------|
 | 0 | portfolio hub | **LIVE 2026-09-14** — https://neeshykha.github.io/portfolio/ | Repo `neeshykha/portfolio`: landing page (11 projects in three sections: AI deployment and measurement, support ops tools, outside work), README, and these state files. Rebuilt on the first Claude Code run because the 2026-08-16 bundle was never found locally. That bundle's `specs/kb-health-checker-spec.md` was lost with it and was not recreated. |
-| 1 | peptide-evidence | **LIVE** — https://neeshykha.github.io/peptide-evidence/ | 4/43 records published. Record batches now unblocked (Claude Code has full web access). |
+| 1 | peptide-evidence | **LIVE** — https://neeshykha.github.io/peptide-evidence/ | 4/43 records published. Record batches are **attended only**: source retrieval needs judgment, and the dataset lives in `~/Documents/ShipSunday/`, which scheduled runs can read but not write. |
 | 2 | KB health checker | **LIVE 2026-08-23** — https://neeshykha.github.io/kb-health-checker/ (flagship, "Start here" on the hub) | v1 paste-mode, pure client-side. v2 = URL-fetch mode on Vercel + serverless (CORS). The old hub-bundle rubric spec is gone; write a fresh one as the first step of v2 if it's needed. |
 | 3 | MQD calculator ("MQD Runway") | **LIVE 2026-09-14** — https://neeshykha.github.io/mqd-calculator/ | Repo `neeshykha/mqd-calculator`, Pages main/root, About set. Rules encoded as editable data (Sept 2026 snapshot: 5k/10k/15k/28k thresholds, unchanged for 2027 per Dec-2025 Delta announcement; Headstart $2,500/card; Boost $10 Reserve / $20 Platinum). Fixed a "-0 MQD" display bug on exact tier ties before publishing. Audience play (r/delta, FlyerTalk) not done yet; Aneesh's call. |
-| 4 | KB checker v2 (URL mode) | Queued | Vercel + serverless — now feasible in any Claude Code run. |
-| 5 | HVAC export cleaner | Backlog (personal slot) | Drag-drop CSV cleaner, port of existing Python rules to browser JS. Rules already encoded in the `hvac-csv-cleaner` skill. |
+| 4 | HVAC export cleaner | **Next — unattended OK** (personal slot) | Drag-drop CSV cleaner: port the `hvac-csv-cleaner` skill's rules to browser JS, and build in `~/ship-sunday/deploy/hvac-export-cleaner/`. **Guardrail:** the real exports are iApartments work telemetry, so the public repo gets synthetic sample data only, with no real exports, hub IDs, or property or company names. Load the rules through the `hvac-csv-cleaner` skill; if a scheduled run can't load it, stop and mark this attended only. |
+| 5 | KB checker v2 (URL mode) | Queued — **attended only** | Needs Vercel + a serverless function (CORS). As of 2026-09-14 the Vercel CLI isn't installed and no account is linked on the Mac; set that up in an attended session first. |
 
 ## Environment facts (save future sessions the discovery cost)
 
