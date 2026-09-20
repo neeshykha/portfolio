@@ -85,3 +85,15 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Environment:** runs live on Aneesh's Mac, not the worker node (the worker's reaper kills headless sessions at 900 s, and it's the work machine). SSH remotes, git 2.9.0 quirks, and kit paths are recorded in PROJECT-STATE.md.
 
 **Next:** (a) Aneesh turns off the Cowork "Ship Sunday" scheduled task; (b) next run: KB checker v2 (URL mode) or the first peptide record batch, both unblocked; (c) optional: post MQD Runway to r/delta or FlyerTalk, Aneesh's call.
+
+---
+
+## Entry #7 — 2026-09-20 (scheduled run)
+
+**Shipped:** **scheduled-agent-detector** is live — https://neeshykha.github.io/scheduled-agent-detector/ (repo `neeshykha/scheduled-agent-detector`, Pages on, About set, 200 on the first verify attempt). It was Friday's build sitting as a public repo with no page and no hub card, which is exactly the "waiting to ship" shape the finishing lane exists for. A nightly detector that judges each scheduled agent by whether its expected artifact moved, never by the run's own report, with a named failure signature on every miss and an explicit list of what it can't vouch for. Hub card added in the "Deploy AI, then measure whether it worked" section, second slot behind deflection-audit.
+
+**Also closed a backlog nobody had noticed:** three repos with hub cards — kb-health-checker, mqd-calculator, and peptide-evidence — had no entry in `portfolio_projects.md`, including the flagship that holds the "Start here" badge on the hub. All three written from their own READMEs and pushed (`b9caa60`). The hub and the citation file had been drifting apart since the hub was rebuilt on 9-14, because that rebuild added cards for repos the Friday routine had never touched. Worth a standing check: the hub is the superset, so anything it links needs a citation entry, not the other way around.
+
+**Learned:** `enable_pages.sh` assumed main/root, and this build serves from `docs/index.html`. Enabling main/root would have "worked" — the page would answer at `/docs/` — and quietly broken the URL the repo's own README advertises. Pages takes `/docs` as a source path, which puts the page back at the bare repo URL. The script now takes an optional source-path argument defaulting to `/`, so the next docs-rooted build is one flag instead of a hand-built API call. Small thing, but it's the same failure shape the detector itself is about: the run would have ended green with a live 200, and the link in the README would have been dead.
+
+**Next:** HVAC export cleaner (queue #4, unattended OK) is the next static-first build if no Friday repo is waiting. KB checker v2 still needs an attended session for the Vercel setup, and peptide record batches still need attended write access to `~/Documents/ShipSunday/`.

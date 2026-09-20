@@ -68,6 +68,11 @@
       <div class="links"><a href="https://neeshykha.github.io/deflection-audit/results/report.html">Open the report</a><a href="https://github.com/neeshykha/deflection-audit">Code</a></div>
     </article>
     <article class="card">
+      <h3>scheduled-agent-detector <span class="badge live">Live</span></h3>
+      <p><span class="hook">A scheduled agent that hits a permission prompt can't answer it, so it skips the write and still reports success.</span> A nightly check that ignores what each agent says about itself and rules on whether the file it was supposed to produce actually moved. Misses get a named failure signature, and a folder it can't read is never called a failure.</p>
+      <div class="links"><a href="https://neeshykha.github.io/scheduled-agent-detector/">Open the report</a><a href="https://github.com/neeshykha/scheduled-agent-detector">Code</a></div>
+    </article>
+    <article class="card">
       <h3>skill-regression-harness</h3>
       <p><span class="hook">Agent skills are prompt-matched, so a model upgrade can stop one from firing without an error anywhere.</span> Static checks plus live dispatch tests of 23 frozen prompts, run under a tool denylist so skills that reach Salesforce and Gmail can't touch either. 21 of 23 correct on the live run.</p>
       <div class="links"><a href="https://github.com/neeshykha/skill-regression-harness">Code</a></div>
