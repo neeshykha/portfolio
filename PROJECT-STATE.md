@@ -34,6 +34,13 @@ Work-side: tool building, MCPs, web tools useful in IoT or similar environments 
 | 4 | HVAC export cleaner | **Next — unattended OK** (personal slot) | Drag-drop CSV cleaner: port the `hvac-csv-cleaner` skill's rules to browser JS, and build in `~/ship-sunday/deploy/hvac-export-cleaner/`. **Guardrail:** the real exports are iApartments work telemetry, so the public repo gets synthetic sample data only, with no real exports, hub IDs, or property or company names. Load the rules through the `hvac-csv-cleaner` skill; if a scheduled run can't load it, stop and mark this attended only. |
 | 5 | KB checker v2 (URL mode) | Queued — **attended only** | Needs Vercel + a serverless function (CORS). As of 2026-09-14 the Vercel CLI isn't installed and no account is linked on the Mac; set that up in an attended session first. |
 
+## Settled decisions — don't re-open these
+
+Aneesh has already ruled on these. Re-proposing them wastes his time.
+
+- **scheduled-agent-detector's demo page keeps its real task IDs** (2026-09-20). Seven names on that page (`daily-job-pipeline`, `filter-domain-paste`, `habit-nagger`, `inbox-junk-sweep`, `morning-brief`, `shelf-audit`, `weekly-podcast-digest`) are exact matches to enabled tasks on this Mac, plus near-matches (`daily-garden-check`, `morning-stand-test`, `old-rainfall-report`, `weekly-people-pick`); only the files and mtimes are synthetic. Raised with him, and **his call was to leave them.** No company names, customers, or credentials are involved. Don't "scrub" this in a later run.
+- **The paused Cowork "Ship Sunday" task stays** (2026-09-20). A paused task costs nothing and there's no downside to it sitting there. Stop suggesting the deletion.
+
 ## Environment facts (save future sessions the discovery cost)
 
 - **Ship Sunday runs in Claude Code on Aneesh's Mac** (migrated from Cowork cloud runs 2026-09-14). Not the worker node: its reaper kills headless sessions at 900 s, and it's the work machine. Kit lives at `~/ship-sunday/` (`bin/publish.sh`, `RUN-PROMPT.md`, `deploy/<repo>/` build folders); skill at `~/.claude/skills/ship-sunday/`. Runs have full git push, `gh`, full web access, and the local ShipSunday folder.
