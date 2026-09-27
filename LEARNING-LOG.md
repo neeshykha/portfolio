@@ -97,3 +97,19 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** `enable_pages.sh` assumed main/root, and this build serves from `docs/index.html`. Enabling main/root would have "worked" — the page would answer at `/docs/` — and quietly broken the URL the repo's own README advertises. Pages takes `/docs` as a source path, which puts the page back at the bare repo URL. The script now takes an optional source-path argument defaulting to `/`, so the next docs-rooted build is one flag instead of a hand-built API call. Small thing, but it's the same failure shape the detector itself is about: the run would have ended green with a live 200, and the link in the README would have been dead.
 
 **Next:** HVAC export cleaner (queue #4, unattended OK) is the next static-first build if no Friday repo is waiting. KB checker v2 still needs an attended session for the Vercel setup, and peptide record batches still need attended write access to `~/Documents/ShipSunday/`.
+
+---
+
+## Entry #8 — 2026-09-27 (scheduled run)
+
+**Shipped:** **hvac-export-cleaner** is live at https://neeshykha.github.io/hvac-export-cleaner/ (repo `neeshykha/hvac-export-cleaner`, `b707ae2`, 200 on verify attempt 5; `cleaner.js` and both sample CSVs also return 200, so the sample button works on Pages). No Friday build was waiting: all 12 public portfolio repos already had hub cards, so this was queue #4. Drop in a thermostat telemetry export and get either the setpoint events (80 of 6,491 rows in the synthetic July sample) or a merged, forward-filled, month-by-month timeline. Everything is client-side. Hub card is in Support operations tools, and the citation entry is in `portfolio_projects.md` (`266bc9c`). The citation backfill check is clean: every hub card has an entry.
+
+**Assumptions made unattended:**
+- The skill's bundled `clean_hvac_csv.py` wasn't on disk, so I ported from SKILL.md, which spells out every rule and edge case.
+- Timeline dedupe drops exact duplicate rows instead of every repeated timestamp. The skill says "drop duplicate timestamps keeping the last," and that would also throw away a real temperature ping that shares a second with a state change. On month-edge overlaps both rules give the same answer.
+- CSV downloads only. The skill's styled .xlsx variant would have needed a spreadsheet library, and a static, no-dependency page seemed the better portfolio piece.
+- Card went in Support operations tools, not Outside work, even though the queue called this the personal slot. The tool is IoT-support knowledge, and that's what the card is evidence of.
+
+**Learned:** the rules were the easy part to port. The work went into sample data that exercises them. Real exports can't be published, and a random-noise CSV wouldn't contain a single heat-cool row, blank mode, or month-edge overlap, so the demo would've looked fine while testing nothing. The generator runs one continuous toy thermal model and cuts two overlapping "monthly" files from it, so the overlap rows are byte-identical the way real ones are, and each quirk is there on purpose. The tests then run against those same files. Also: with no browser in a scheduled run, compiling the inline script with Node's `vm` module and checking every `$('id')` against the markup covers most of what a quick look in a browser would have caught.
+
+**Next:** the queue has run dry for unattended work. With #4 shipped, #5 and the peptide batches are attended only, so I added #6 (MQD Runway "Elevate Your Status" toggle, unattended OK) as a proposal for Aneesh to approve or veto. If Friday builds something, it ships first as usual.
