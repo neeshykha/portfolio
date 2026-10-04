@@ -115,3 +115,15 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Same-day v2 (attended, Aneesh's call):** he asked whether he had real exports to test with. Four were in `~/Downloads/Property Data/HVAC/`, and a local-only dry run (nothing published) found two problems the synthetic data couldn't. First, most setpoint rows carry no mode, because `tm` is its own sparse ping: 108 of 125 in one file. The skill called blank modes occasional. Second, two exports of the same hub covered the same days but were six hours apart in time zone, so a merge would have recorded every event twice with no warning. v2 (`f5dcd83`, 28 tests) resolves the mode from the row, then a tm ping within 10 s after, then the last tm before; blank modes went to zero across all four files. It also flags zone offsets by matching whole rows under half-hour shifts. Bare timestamps were the first attempt, and they failed on the synthetic data because a regular ping schedule lines timestamps up at any shift. It caught the real pair at exactly 6 h, with all 1,328 overlapping rows matching, and no false positives across hubs. **Lesson:** synthetic data only tests the quirks you already knew to plant. Before a tool built from real-world rules ships, run it locally on real inputs, even ones that can't be published. The hvac-csv-cleaner skill has the same two blind spots and hasn't been changed.
 
 **Next:** the queue has run dry for unattended work. With #4 shipped, #5 and the peptide batches are attended only, so I added #6 (MQD Runway "Elevate Your Status" toggle, unattended OK) as a proposal for Aneesh to approve or veto. If Friday builds something, it ships first as usual.
+
+---
+
+## Entry #9 — 2026-10-04 (scheduled run)
+
+**Shipped:** nothing new. No Friday build was waiting: all 13 public portfolio repos already have hub cards, and the two repos pushed this week (sf-caseops-mcp and claude-resume-pipeline, both Oct 3) were updates to projects that are already on the hub. The citation check is clean too: every hub card has a `##` entry in `portfolio_projects.md`. The hub still returns 200 after this push.
+
+**Assumption made unattended:** queue #6 (the MQD Runway "Elevate Your Status" toggle) is marked unattended OK but also "needs Aneesh's yes," and nothing in the state files records one. I read that as not approved and left it alone. Building a proposal he hasn't answered would turn "veto it or replace it" into a decision made for him.
+
+**Learned:** an item that's unattended OK and waiting on approval is, to a scheduled run, the same as attended only. The queue had one row a run could take and it was gated, so this run had nothing to do. The fix is on the queue side: either the yes gets recorded in PROJECT-STATE.md, or the queue holds an unattended item that doesn't need one.
+
+**Next:** Aneesh's call on #6 (yes, veto, or a replacement). Until then, scheduled runs ship only what Friday builds. KB checker v2 and the peptide batches still need an attended session.
