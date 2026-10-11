@@ -127,3 +127,20 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** an item that's unattended OK and waiting on approval is, to a scheduled run, the same as attended only. The queue had one row a run could take and it was gated, so this run had nothing to do. The fix is on the queue side: either the yes gets recorded in PROJECT-STATE.md, or the queue holds an unattended item that doesn't need one.
 
 **Next:** Aneesh's call on #6 (yes, veto, or a replacement). Until then, scheduled runs ship only what Friday builds. KB checker v2 and the peptide batches still need an attended session.
+
+---
+
+## Entry #10 — 2026-10-11 (scheduled run)
+
+**Shipped:** **agent-access-register** is live at https://neeshykha.github.io/agent-access-register/ (repo `neeshykha/agent-access-register`, Pages on main / `/docs`, homepage set, 200 on verify attempt 4). It was the one public portfolio repo with no hub card: an on-demand register of what each scheduled agent can read, write, send, and reach, diffed against a twelve-rule acceptable-use policy. The demo page is a synthetic fleet. Hub card added in "Deploy AI, then measure whether it worked," between scheduled-agent-detector and skill-regression-harness, because the README calls the three a set. Its citation entry was already in `portfolio_projects.md`, so nothing was committed to resume_project, and the backfill check is clean: all 14 hub cards have an entry.
+
+**Assumptions made unattended:**
+- The repo went public on Monday 2026-10-05 from a weekday session, not a Friday build. I treated it the same way: public, no hub card, so it's waiting.
+- Pages source is `/docs`, since the only page is `docs/index.html` and the README links the bare repo URL.
+- With no browser, the pre-publish check was a read of the page source: one self-contained file, no external scripts or stylesheets, closes cleanly, and a grep for company and personal strings came back empty.
+- The existing citation entry's URL line doesn't carry a "live at" link. I left it alone, since the entry isn't missing and scheduled-agent-detector's line has the same shape.
+- Queue #6 still has no yes recorded, so it stayed untouched.
+
+**Learned:** the README had been advertising a demo link that returned 404 for six days. The repo was public, the citation entry was written, and cover letters could already point at it, but nobody had turned Pages on. Last Sunday's run couldn't have caught it, because the repo went public the day after. The finishing lane's check is "public repo, no hub card," and that worked here whatever day the push happened. The sharper version is to also ask whether a README promises a `github.io` URL that isn't answering yet, which is now a line in PROJECT-STATE's environment facts.
+
+**Next:** unchanged. Aneesh's call on #6, or a replacement unattended item. KB checker v2 and the peptide batches still need an attended session.
