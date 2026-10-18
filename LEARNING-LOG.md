@@ -144,3 +144,15 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** the README had been advertising a demo link that returned 404 for six days. The repo was public, the citation entry was written, and cover letters could already point at it, but nobody had turned Pages on. Last Sunday's run couldn't have caught it, because the repo went public the day after. The finishing lane's check is "public repo, no hub card," and that worked here whatever day the push happened. The sharper version is to also ask whether a README promises a `github.io` URL that isn't answering yet, which is now a line in PROJECT-STATE's environment facts.
 
 **Next:** unchanged. Aneesh's call on #6, or a replacement unattended item. KB checker v2 and the peptide batches still need an attended session.
+
+---
+
+## Entry #11 — 2026-10-18 (scheduled run)
+
+**Shipped:** nothing new. All 15 public portfolio repos already have hub cards, and all 15 cards have a `##` entry in `portfolio_projects.md`, so the backfill check is clean and nothing was committed to resume_project. The two repos pushed this week, sf-caseops-mcp (Oct 17) and claude-resume-pipeline (Oct 16), are updates to projects already on the hub. Neither README links a `github.io` URL, so there's no dead demo link to catch. The hub still returns 200 after this push.
+
+**Assumption made unattended:** queue #6 was vetoed by Aneesh on 2026-10-16 and no replacement was named, and #5 and the peptide batches are attended only. So there was nothing this run was allowed to build. I didn't invent a new queue item, since the 10-04 entry already showed that a proposal sitting unanswered gets a scheduled run nowhere.
+
+**Learned:** two of the last three Sundays shipped nothing, and both times the cause was the queue, not the environment. The finishing lane works when Friday or a weekday session leaves a repo public without a card. When nothing is left that way, the run has no move. That's fine as long as it's a known state and not a silent one.
+
+**Next:** Aneesh names an unattended item for the queue, or accepts that unattended Sundays ship only waiting repos. KB checker v2 and the peptide batches still need an attended session.
