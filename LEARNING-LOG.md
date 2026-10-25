@@ -156,3 +156,20 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** two of the last three Sundays shipped nothing, and both times the cause was the queue, not the environment. The finishing lane works when Friday or a weekday session leaves a repo public without a card. When nothing is left that way, the run has no move. That's fine as long as it's a known state and not a silent one.
 
 **Next:** Aneesh names an unattended item for the queue, or accepts that unattended Sundays ship only waiting repos. KB checker v2 and the peptide batches still need an attended session.
+
+---
+
+## Entry #12 — 2026-10-25 (scheduled run)
+
+**Shipped:** **bench-forecast** is live at https://neeshykha.github.io/bench-forecast/results/report.html (repo `neeshykha/bench-forecast`, Pages on main / root, 200 on verify attempt 4). It went public 2026-10-19 with a citation entry already in `portfolio_projects.md` but no Pages site and no hub card. It's a rolling 26-week capacity forecast for a professional services team: bench by engineer, skill-mix gaps, and the date each req has to open once hiring and ramp are counted. Hub card is in Support operations tools, after hvac-export-cleaner. agent-ops-bench and claude-triage-simulator were pushed Oct 23 but already had cards. Backfill check is clean: all 16 hub cards (hub included) have a `##` entry, so nothing was committed to resume_project.
+
+**Assumptions made unattended:**
+- The repo has no root `index.html`; the page is `results/report.html`, the same shape as deflection-audit. So Pages serves from root and I set the About homepage to the report URL *before* running `enable_pages.sh`, since the script would otherwise set the bare repo URL, which 404s.
+- Card went in Support operations tools, not the measurement section: it's capacity planning, operational knowledge rather than an AI evaluation.
+- Pre-publish check was a source read: one self-contained file, inline SVG favicon only, closes cleanly, and a grep for company, personal, and path strings came back empty.
+- The README still says to download the report because "GitHub won't render it." That's now out of date, since Pages renders it, but it's Friday's README, so I left it for an attended edit.
+- The citation entry links the repo, not the live report. Left alone, same as agent-access-register's.
+
+**Learned:** `enable_pages.sh` assumes a waiting repo serves from its root or `/docs`. A report-path repo needs the homepage set first, or the About link the script writes is a 404. That's a third shape after root and `/docs`, and the script could take a homepage argument for it. Noted in PROJECT-STATE's environment facts for now.
+
+**Next:** unchanged queue. Aneesh names an unattended item, or unattended Sundays keep shipping only waiting repos. Small attended fix: drop the "download it" line from bench-forecast's README now that the report is live.
