@@ -173,3 +173,15 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** `enable_pages.sh` assumes a waiting repo serves from its root or `/docs`. A report-path repo needs the homepage set first, or the About link the script writes is a 404. That's a third shape after root and `/docs`, and the script could take a homepage argument for it. Noted in PROJECT-STATE's environment facts for now.
 
 **Next:** unchanged queue. Aneesh names an unattended item, or unattended Sundays keep shipping only waiting repos. Small attended fix: drop the "download it" line from bench-forecast's README now that the report is live.
+
+---
+
+## Entry #13 — 2026-11-01 (scheduled run)
+
+**Shipped:** nothing new. All 16 public portfolio repos (hub included) already have hub cards, and all 16 have a `##` entry in `portfolio_projects.md`, so the backfill check is clean and nothing was committed to resume_project. The only repo pushed this week, claude-resume-pipeline (Oct 30), is an update to a project already on the hub, and its README links no `github.io` URL. The hub still returns 200 after this push.
+
+**Assumption made unattended:** with #6 vetoed and #5 and the peptide batches attended only, there's still no queue item a scheduled run can take. I didn't invent one, same call as 10-18.
+
+**Learned:** nothing new about the environment. This is the third Sunday in five with nothing to ship, and every time the cause has been the queue. The finishing lane catches repos left public without a card, and nothing was left that way this week.
+
+**Next:** unchanged. Aneesh names an unattended item, or accepts that unattended Sundays ship only waiting repos. Still open from 10-25: the stale "download it" line in bench-forecast's README (attended).
