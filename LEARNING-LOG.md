@@ -185,3 +185,18 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** nothing new about the environment. This is the third Sunday in five with nothing to ship, and every time the cause has been the queue. The finishing lane catches repos left public without a card, and nothing was left that way this week.
 
 **Next:** unchanged. Aneesh names an unattended item, or accepts that unattended Sundays ship only waiting repos. Still open from 10-25: the stale "download it" line in bench-forecast's README (attended).
+
+---
+
+## Entry #14 — 2026-11-03 (attended run)
+
+**Shipped:** **triage-bench** is public at https://github.com/neeshykha/triage-bench (200, one commit, the README's demo GIF loads from raw.githubusercontent). It's the sequel to agent-ops-bench: a Tier 1 triage agent, a challenger that sees the decision but never the reasoning, rules that only raise urgency, one revision, then Human-Review, with a gold-set eval of six configurations. Hub card added after agent-ops-bench; citation entry pushed to resume_project (`portfolio: add triage-bench`).
+
+**Deviations from the usual run:**
+- Didn't use `publish.sh`. It always enables Pages and sets a github.io homepage, and this is a code repo like its three siblings, none of which has Pages. Created the repo with `gh repo create`, pushed over SSH from `deploy/triage-bench`, and left the homepage empty.
+- Published squashed history on purpose: the build repo's local log had a removed detail in older commits, so the deploy folder came from `git archive HEAD` into a fresh repo.
+- `portfolio_projects.md` already had two uncommitted edits from another session (live URLs on agent-access-register and scheduled-agent-detector). I staged only the new entry with `git apply --cached` and left those edits uncommitted, as they were.
+
+**Learned:** `publish.sh` assumes every portfolio piece is a page. Code-only repos need a path that skips Pages; for now that's the three manual commands above. A `--no-pages` flag on the script would make it one step.
+
+**Next:** unchanged queue. Aneesh names an unattended item, or unattended Sundays keep shipping only waiting repos. Still open: the stale "download it" line in bench-forecast's README (attended), and the two uncommitted live-URL edits in `portfolio_projects.md`, which their owner should commit.
