@@ -200,3 +200,27 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** `publish.sh` assumes every portfolio piece is a page. Code-only repos need a path that skips Pages; for now that's the three manual commands above. A `--no-pages` flag on the script would make it one step.
 
 **Next:** unchanged queue. Aneesh names an unattended item, or unattended Sundays keep shipping only waiting repos. Still open: the stale "download it" line in bench-forecast's README (attended), and the two uncommitted live-URL edits in `portfolio_projects.md`, which their owner should commit.
+
+---
+
+## Entry #15 — 2026-11-08 (scheduled run)
+
+**Shipped:** **vendor-agent-uat-kit** is live at https://neeshykha.github.io/vendor-agent-uat-kit/ (200 on verify attempt 4; `batch-1.html` also 200). It went public 2026-11-05 with no Pages site, no hub card, and no citation entry. It acceptance-tests a vendor's AI support agent before go-live: it grades what the agent did against what it said and what the rules expected, and sends rule conflicts and gaps to the rules owner rather than the vendor. Hub card sits after deflection-audit in the measurement section. Citation entry is committed in resume_project (`c156557`, `portfolio: add vendor-agent-uat-kit`), not yet pushed (see below). The hub still returns 200 after this push.
+
+**Assumptions made unattended:**
+- The demo page is `docs/index.html`, so Pages serves from `main` / `/docs`, matching the README's links (`docs/index.html`, `docs/batch-1.html`).
+- Pre-publish check was a source read of `docs/index.html`. The page closes cleanly, loads no external scripts, uses an inline emoji favicon, and a grep for company, vendor, personal, path, and email strings came back empty. The README keeps the real vendor anonymous and publishes only counts.
+- Card placement: measurement section, next to deflection-audit, because the two bracket a launch.
+- The citation entry's claims come only from the README, including its two caveats: the back-test isn't blind, and the kit checks behavior, not answer quality.
+- `portfolio_projects.md` still had another session's two uncommitted live-URL edits. I staged only the new entry with `git apply --cached` and left those edits as they were.
+
+**Push blocked:** `git push` in resume_project needed approval from the destructive-gate hook, which has prompted on pushes outside ~/ship-sunday since 2026-10-19. This is the first scheduled run since then with a citation entry to push. The commit sits on local `main`, and that repo's daily run pushes `main`. I didn't treat this as a run failure, because the live URL is verified and the portfolio push isn't affected. No alert sent.
+
+**Baseline for the planned outcomes** (filled in, not graded, per the plan):
+1. New live pieces: 3 new cards in the last 5 scheduled runs (Oct 11, Oct 25, Nov 8), plus triage-bench from the attended Nov 3 run.
+2. No empty Sundays: 3 of the last 5 scheduled runs. All 3 were waiting repos; the queue held no "unattended OK" item on any of them.
+3. Hub hygiene: clean. 17 project cards plus the hub, 28 links all 200, and every card has an entry.
+
+**Learned:** two things. First, the skill says to commit and push resume_project, but a global hook now blocks that push in unattended runs, so the step can't fully land on a Sunday. It's harmless today only because another routine pushes the same branch. Second, outcome 2 depends on Friday leaving a repo behind. On the five Sundays in this baseline, the queue alone would have produced zero non-empty runs. Hitting 13 of 13 needs an "unattended OK" queue item, or Friday has to ship weekly. Added `bin/check_hub_links.sh` so outcome 3 is one command.
+
+**Next:** grading starts 2026-11-15 (run 1 of 13). Aneesh: add an "unattended OK" item to the queue, since outcome 2 can't hold without one. Then decide whether the scheduled run should push resume_project (an allow rule for that one repo) or keep relying on the daily run. Still open: bench-forecast's stale README line (attended) and the other session's two uncommitted URL edits.
