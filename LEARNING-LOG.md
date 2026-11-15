@@ -224,3 +224,22 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** two things. First, the skill says to commit and push resume_project, but a global hook now blocks that push in unattended runs, so the step can't fully land on a Sunday. It's harmless today only because another routine pushes the same branch. Second, outcome 2 depends on Friday leaving a repo behind. On the five Sundays in this baseline, the queue alone would have produced zero non-empty runs. Hitting 13 of 13 needs an "unattended OK" queue item, or Friday has to ship weekly. Added `bin/check_hub_links.sh` so outcome 3 is one command.
 
 **Next:** grading starts 2026-11-15 (run 1 of 13). Aneesh: add an "unattended OK" item to the queue, since outcome 2 can't hold without one. Then decide whether the scheduled run should push resume_project (an allow rule for that one repo) or keep relying on the daily run. Still open: bench-forecast's stale README line (attended) and the other session's two uncommitted URL edits.
+
+---
+
+## Entry #16 — 2026-11-15 (scheduled run)
+
+**Shipped:** nothing new. All 18 public portfolio repos (hub included) have hub cards, and every card has a `##` entry in `portfolio_projects.md`. The two repos pushed this week, claude-resume-pipeline and skill-regression-harness (both Nov 15), are updates to projects already on the hub. `bin/check_hub_links.sh`: 28 links, all 200. Nothing was committed to resume_project.
+
+**Assumption made unattended:** the queue still has no "unattended OK" item (#5 and peptide batches are attended only, #6 is vetoed), so I didn't invent one. Same call as 10-18 and 11-01. A run that ships nothing isn't a failure under the skill, so no alert went out.
+
+**Closed from last week:** vendor-agent-uat-kit's citation entry (`c156557`) is on `origin/main`, pushed by resume_project's own run as expected. The other session's two live-URL edits went out in `6eee1df`, so that open item is done.
+
+**Graded against plan (run 1 of 13):**
+1. New live pieces: 0 this week, 0 of 6 so far. On track (pace floor after 1 run is 0).
+2. No empty Sundays: missed. No waiting repo and no "unattended OK" queue item. 0 of 1 so far, so this outcome can no longer hit 13 of 13. Behind: the queue has had no unattended item since #6 was vetoed on 10-16.
+3. Hub hygiene: clean. 1 of 1 so far. On track.
+
+**Learned:** the Nov 8 baseline called this. Outcome 2 can't recover inside this window, since one miss already rules out 13 of 13. What it can still show is how many of the remaining 12 runs aren't empty, and that depends entirely on an unattended queue item or a Friday repo.
+
+**Next:** Aneesh: add an "unattended OK" queue item, and decide whether outcome 2's target stands now that it's already missed. Still open: bench-forecast's stale "download it" README line (attended), and whether the scheduled run should get a push rule for resume_project.
