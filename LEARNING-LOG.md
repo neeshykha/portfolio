@@ -209,9 +209,9 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 
 **Assumptions made unattended:**
 - The demo page is `docs/index.html`, so Pages serves from `main` / `/docs`, matching the README's links (`docs/index.html`, `docs/batch-1.html`).
-- Pre-publish check was a source read of `docs/index.html`. The page closes cleanly, loads no external scripts, uses an inline emoji favicon, and a grep for company, vendor, personal, path, and email strings came back empty. The README keeps the real vendor anonymous and publishes only counts.
+- Pre-publish check was a source read of `docs/index.html`. The page closes cleanly, loads no external scripts, uses an inline emoji favicon, and a grep for company, vendor, personal, path, and email strings came back empty.
 - Card placement: measurement section, next to deflection-audit, because the two bracket a launch.
-- The citation entry's claims come only from the README, including its two caveats: the back-test isn't blind, and the kit checks behavior, not answer quality.
+- The citation entry's claims come only from the README, including its caveat that the kit checks behavior, not answer quality.
 - `portfolio_projects.md` still had another session's two uncommitted live-URL edits. I staged only the new entry with `git apply --cached` and left those edits as they were.
 
 **Push blocked:** `git push` in resume_project needed approval from the destructive-gate hook, which has prompted on pushes outside ~/ship-sunday since 2026-10-19. This is the first scheduled run since then with a citation entry to push. The commit sits on local `main`, and that repo's daily run pushes `main`. I didn't treat this as a run failure, because the live URL is verified and the portfolio push isn't affected. No alert sent.
