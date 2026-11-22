@@ -243,3 +243,20 @@ Enter current MQDs, planned Delta flight spend, and Delta Amex cards (Boost + He
 **Learned:** the Nov 8 baseline called this. Outcome 2 can't recover inside this window, since one miss already rules out 13 of 13. What it can still show is how many of the remaining 12 runs aren't empty, and that depends entirely on an unattended queue item or a Friday repo.
 
 **Next:** Aneesh: add an "unattended OK" queue item, and decide whether outcome 2's target stands now that it's already missed. Still open: bench-forecast's stale "download it" README line (attended), and whether the scheduled run should get a push rule for resume_project.
+
+---
+
+## Entry #17 — 2026-11-22 (scheduled run)
+
+**Shipped:** nothing new. All 18 public portfolio repos (hub included) have hub cards, and every card has a `##` entry in `portfolio_projects.md`. Three repos were pushed this week, all already on the hub: the portfolio hub itself (Nov 20, attended: a who-I-am top block, a LinkedIn link, and og preview tags), claude-resume-pipeline (Nov 20), and vendor-agent-uat-kit (Nov 19, a README trim). Neither project README links a `github.io` URL that isn't answering. `bin/check_hub_links.sh`: 30 links, all 200. Nothing was committed to resume_project.
+
+**Assumption made unattended:** the queue still has no "unattended OK" item (#5 and the peptide batches are attended only, #6 is vetoed), so I didn't invent one. Same call as the last four empty runs. A run that ships nothing isn't a failure under the skill, so no alert went out.
+
+**Graded against plan (run 2 of 13):**
+1. New live pieces: 0 this week, 0 of 6 so far. On track (pace floor after 2 runs is 0). Behind next week unless run 3 ships one: the floor after 3 runs is 1.
+2. No empty Sundays: missed again. No waiting repo and no "unattended OK" queue item. 0 of 2 so far. Behind, for the same reason as run 1.
+3. Hub hygiene: clean. 2 of 2 so far. On track.
+
+**Learned:** outcome 1 is about to turn too. Its floor goes from 0 to 1 after run 3 (Nov 29), and with no unattended queue item, only a Friday build can keep it on track. Both outcomes now hang on the same missing input.
+
+**Next:** Aneesh: add an "unattended OK" queue item before Nov 29, or outcome 1 goes behind alongside outcome 2. Still open: bench-forecast's stale "download it" README line (attended), and whether the scheduled run should get a push rule for resume_project.
